@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../components/button";
 import { Puff } from "react-loader-spinner";
 
@@ -9,7 +9,7 @@ interface AdviceApi {
   };
 }
 
-const Advice = () => {
+const Advice: React.FC = () => {
   const [advice, setAdvice] = useState<null | AdviceApi>(null);
   const [loading, setLoading] = useState<boolean>(true); // Initially set to true
 
@@ -52,7 +52,7 @@ const Advice = () => {
       {/* Display advice if available */}
       {!loading && advice && (
         <div className="bg-white p-5 rounded-md">
-          <h1 className="font-bold text-5xl py-20 px-16 text-center">
+          <h1 className="font-bold text-xl md:text-5xl py-20 px-16 text-center">
             "{advice.slip.advice}"
           </h1>
         </div>
